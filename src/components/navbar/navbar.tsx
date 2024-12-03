@@ -1,7 +1,7 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Menu } from "lucide-react"
-import { ThemeToggle } from "@/components/theme/theme-toggle"
+import Link from "next/link";
+import Image from "next/image";
+import { Menu } from "lucide-react";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,15 +9,15 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import { Button } from "@/components/ui/button"
+} from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
+} from "@/components/ui/sheet";
 
 export function Navbar() {
   return (
@@ -43,14 +43,37 @@ export function Navbar() {
                 >
                   Favorites
                 </Link>
-                <Link
-                  href="/about"
-                  className="block px-2 py-1 text-lg hover:text-primary"
-                >
-                  About
-                </Link>
+
                 <div className="px-2 py-1">
-                  <h3 className="mb-2 text-lg font-heading font-medium">More</h3>
+                  <h3 className="mb-2 text-lg font-heading font-medium">
+                    About
+                  </h3>
+                  <div className="flex flex-col space-y-2 pl-4">
+                    <Link
+                      href="/about"
+                      className="block text-sm hover:text-primary"
+                    >
+                      About Rick and Morty
+                    </Link>
+                    <Link
+                      href="/characters"
+                      className="block text-sm hover:text-primary"
+                    >
+                      Meet the Characters
+                    </Link>
+                    <Link
+                      href="/api-documentation"
+                      className="block text-sm hover:text-primary"
+                    >
+                      API Documentation
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="px-2 py-1">
+                  <h3 className="mb-2 text-lg font-heading font-medium">
+                    More
+                  </h3>
                   <div className="flex flex-col space-y-2 pl-4">
                     <Link
                       href="/docs"
@@ -90,7 +113,9 @@ export function Navbar() {
               height={40}
               className="rounded-full"
             />
-            <span className="inline-block font-heading font-bold">Rick & Morty</span>
+            <span className="inline-block font-heading font-bold">
+              Rick & Morty
+            </span>
           </Link>
         </div>
 
@@ -105,13 +130,49 @@ export function Navbar() {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
+
               <NavigationMenuItem>
-                <Link href="/about" legacyBehavior passHref>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
-                    About
-                  </NavigationMenuLink>
-                </Link>
+                <NavigationMenuTrigger>About</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[200px] gap-3 p-4 md:w-[300px] lg:w-[400px]">
+                    <li>
+                      <Link href="/about" legacyBehavior passHref>
+                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium">
+                            Rick and Morty
+                          </div>
+                          <p className="line-clamp-2 text-sm text-muted-foreground">
+                            Learn more about Rick and Morty
+                          </p>
+                        </NavigationMenuLink>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/characters" legacyBehavior passHref>
+                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium">Characters from the animated series</div>
+                          <p className="line-clamp-2 text-sm text-muted-foreground">
+                            Meet the characters and their details
+                          </p>
+                        </NavigationMenuLink>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/api-documentation" legacyBehavior passHref>
+                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium">
+                            API Documentation
+                          </div>
+                          <p className="line-clamp-2 text-sm text-muted-foreground">
+                            Learn how to use the API
+                          </p>
+                        </NavigationMenuLink>
+                      </Link>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
               </NavigationMenuItem>
+
               <NavigationMenuItem>
                 <NavigationMenuTrigger>More</NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -119,7 +180,9 @@ export function Navbar() {
                     <li>
                       <Link href="/docs" legacyBehavior passHref>
                         <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium">Documentation</div>
+                          <div className="text-sm font-medium">
+                            Documentation
+                          </div>
                           <p className="line-clamp-2 text-sm text-muted-foreground">
                             Learn how to use the app and its features
                           </p>
@@ -129,7 +192,9 @@ export function Navbar() {
                     <li>
                       <Link href="/tech" legacyBehavior passHref>
                         <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium">Technologies</div>
+                          <div className="text-sm font-medium">
+                            Technologies
+                          </div>
                           <p className="line-clamp-2 text-sm text-muted-foreground">
                             Explore the tech stack used in this project
                           </p>
@@ -139,7 +204,9 @@ export function Navbar() {
                     <li>
                       <Link href="/developer" legacyBehavior passHref>
                         <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium">Developer Info</div>
+                          <div className="text-sm font-medium">
+                            Developer Info
+                          </div>
                           <p className="line-clamp-2 text-sm text-muted-foreground">
                             About the developer and contact information
                           </p>
@@ -160,5 +227,5 @@ export function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
