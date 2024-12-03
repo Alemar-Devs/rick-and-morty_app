@@ -1,6 +1,14 @@
+/* tailwind.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Get Schwifty';
+  src: url('/fonts/get_schwifty.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 @layer base {
   :root {
@@ -72,5 +80,8 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .get-schwifty {
+    font-family: 'Get Schwifty', sans-serif;
   }
 }
